@@ -1,8 +1,9 @@
-const gridContainer = document.querySelector(`.container`);
-const div = document.createElement(`div`);
+const gridContainer = document.getElementById("grid-container");
 
 for (let i = 0; i < 16; i++) {
-  div.textContent = i;
-  console.log(i);
-  gridContainer.appendChild(div);
+  for (let j = 0; j < 16; j++) {
+    const cell = document.createElement("div");
+    cell.className = "grid-cell";
+    gridContainer.appendChild(cell);
+  }
 }
