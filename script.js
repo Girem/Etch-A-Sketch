@@ -12,25 +12,32 @@ for (let i = 0; i < 16; i++) {
 gridContainer.addEventListener(
   "mouseover",
   (event) => {
-    // highlight the mouseover target
-    console.log(event.target);
     if (event.target.id == `grid-container`) {
       return;
     } else {
       event.target.classList.add("active");
     }
-
-    // reset the color after a short delay
-    // setTimeout(() => {
-    //   event.target.style.color = "";
-    // }, 500);
   },
   false
 );
 
 function clickPrompt() {
-  let changeGrid = prompt(`enter grid size`);
+  let boxNum = prompt(`enter grid size (no more then 100)`);
   // alert(changeGrid);
+  if (boxNum <= 100) {
+    gridContainer.innerHTML = "";
+    gridContainer.style.gridTemplateColumns = `repeat(${boxNum}, 50px)`;
+    gridContainer.style.gridTemplateRows = `repeat(${boxNum}, 50px)`;
+    for (let i = 0; i < boxNum; i++) {
+      for (let j = 0; j < boxNum; j++) {
+        const cell = document.createElement("div");
+        cell.className = "grid-cell";
+        gridContainer.appendChild(cell);
+      }
+    }
+  } else {
+    alert(`grid size is too big (100+)`);
+  }
 }
 
 btn.addEventListener(`click`, clickPrompt);
