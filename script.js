@@ -26,8 +26,8 @@ function clickPrompt() {
   // alert(changeGrid);
   if (boxNum <= 100) {
     gridContainer.innerHTML = "";
-    gridContainer.style.gridTemplateColumns = `repeat(${boxNum}, 50px)`;
-    gridContainer.style.gridTemplateRows = `repeat(${boxNum}, 50px)`;
+    gridContainer.style.gridTemplateColumns = `repeat(${boxNum}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${boxNum}, 1fr)`;
     for (let i = 0; i < boxNum; i++) {
       for (let j = 0; j < boxNum; j++) {
         const cell = document.createElement("div");
